@@ -2,6 +2,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 import {Recipe} from "./recipes.model";
 import {Ingredient} from "../shared/ingredients.model";
 import {ShoppingListService} from "../shopping-list/shopping-list.service";
+import {filter} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,10 @@ export class RecipeService {
 
   gerRecipes() {
     return this.recipes.slice()
+  }
+
+  getRecipe(index: number) {
+    return this.recipes[index]
   }
 
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
