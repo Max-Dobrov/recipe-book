@@ -1,13 +1,15 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
 import {Recipe} from "./recipes.model";
 import {Ingredient} from "../shared/ingredients.model";
 import {ShoppingListService} from "../shopping-list/shopping-list.service";
-import {filter} from "rxjs";
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecipeService {
+
+
   private recipes: Recipe[] = [
     new Recipe(
       'test 1',
@@ -23,7 +25,6 @@ export class RecipeService {
       [new Ingredient('Beans', 2)],
       'https://static.toiimg.com/photo/83511111.cms')
   ];
-  selectedRecipe = new EventEmitter<Recipe>()
 
   constructor(private shoppingListService: ShoppingListService) {
   }
